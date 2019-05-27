@@ -613,8 +613,20 @@ static int parse_args(int argc, char **argv)
     return optind;
 }
 
+FILE* log_pc= NULL;
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 int main(int argc, char **argv, char **envp)
 {
+    log_pc= fopen("inst.txt", "w");
+    struct stat st = {0};
+
+    if (stat("/tmp/qira_logs", &st) == -1)
+        mkdir("/tmp/qira_logs", 0700);
+        
     struct target_pt_regs regs1, *regs = &regs1;
     struct image_info info1, *info = &info1;
     struct linux_binprm bprm;

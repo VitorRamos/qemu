@@ -968,8 +968,8 @@ void write_out_base(CPUArchState *env, int id) {
 #endif
 }
 
+#include "exec/exec-all.h"
 
-/* Interpret pseudo code in tb. */
 uintptr_t tcg_qemu_tb_exec(CPUArchState *env, TranslationBlock *tb)
 {
     uint8_t *tb_ptr = tb->tc.ptr;
@@ -1031,7 +1031,6 @@ uintptr_t tcg_qemu_tb_exec(CPUArchState *env, TranslationBlock *tb)
       GLOBAL_logstate->changelist_number++;
       add_change(tb->pc, tb->size, IS_START);
     }
-
 
     QIRA_DEBUG("set changelist %d at %x(%d)\n", GLOBAL_logstate->changelist_number, tb->pc, tb->size);
 #endif

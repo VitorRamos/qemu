@@ -40,7 +40,8 @@ static inline void log_cpu_state_mask(int mask, CPUState *cpu, int flags)
 static inline void log_target_disas(CPUState *cpu, target_ulong start,
                                     target_ulong len)
 {
-    target_disas(qemu_logfile, cpu, start, len);
+    //target_disas(qemu_logfile, cpu, start, len);
+    real_target_disas(qemu_logfile, cpu, start, len);
 }
 
 static inline void log_disas(void *code, unsigned long size)

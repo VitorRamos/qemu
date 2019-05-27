@@ -1,3 +1,5 @@
+#include "exec/user/abitypes.h"
+
 struct librarymap {
   struct librarymap *next;
   abi_ulong begin;

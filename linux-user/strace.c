@@ -20,6 +20,7 @@ typedef unsigned long long abi_ulonglong;
 #define TARGET_ABI_FMT_lx "%llx"
 #endif
 
+
 extern FILE *GLOBAL_strace_file;
 #define gemu_log(x...) { fprintf(GLOBAL_strace_file, x); fflush(GLOBAL_strace_file); }
 
